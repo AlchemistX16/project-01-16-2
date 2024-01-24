@@ -39,6 +39,9 @@ Route::get('admin/user/index',[UserController::class, 'index'])->name('u.index')
 Route::get('admin/product/index',[ProductController::class, 'index'])->name('p.index');
 Route::get('admin/product/create',[ProductController::class, 'create'])->name('p.create');
 Route::post('admin/product/insert',[ProductController::class, 'insert']);
+Route::get('admin/product/edit/{id}',[ProductController::class, 'edit'])->name('p.edit');
+Rotue::post('admin/product/update/{id}',[ProductController::class, 'update']);
+Rotue::get('admin/product/delete/{id}',[ProductController::class, 'delete']);
 
 // menu category
 Route::get('admin/category/index',[CategoryController::class, 'index'])->name('c.index');

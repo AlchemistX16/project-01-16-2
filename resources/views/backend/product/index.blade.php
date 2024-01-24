@@ -10,6 +10,9 @@
             <tr>
               <th>No</th>
               <th>Name</th>
+              <th>images</th>
+              <th>Price</th>
+              <th>Description</th>
               <th>Created_at</th>
               <th>Update_at</th>
               <th>Actions</th>
@@ -19,13 +22,17 @@
             @foreach ($product as $pro)
             <tr>
             <td>{{ $product->firstItem() + $loop->index }}</td>
-            <td>{{ $cat->image }}</td>
-            <td>{{ $cat->name }}</td>
-            <td>{{ $cat->created_at }}</td>
-            <td>{{ $cat->updated_at }}</td>
+            <td>{{ $pro->name }}</td>
             <td>
-              <a href="{{ url('admin/category/edit',$cat->category_id) }}"><i stly="font-color: black">แก้ไข</i></a>
-              <a href="#"><i>ลบ</i></a>
+              <img src ="{{ asset('backend/product/resize/'.$pro->image) }}">
+            </td>
+            <td>{{ $pro->price }}</td>
+            <td>{{ $pro->description }}</td>
+            <td>{{ $pro->created_at }}</td>
+            <td>{{ $pro->updated_at }}</td>
+            <td>
+              <a href="{{ route('p.edit',$pro->product_id) }}"><i stly="font-color: black">แก้ไข</i></a>
+              <a href="{{ url('admin/product/deiete/'.$pro->product_id) }}"><i>ลบ</i></a>
             </td>
             </tr>
             @endforeach
