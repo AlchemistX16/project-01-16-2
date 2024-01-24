@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function index(){
-        $category = category::all();
+        $category = category::orderBy('category_id','desc')->Paginate(5);
         return view('backend.category.index',compact('category'));
     }
     public function create(){
@@ -49,4 +49,11 @@ class CategoryController extends Controller
         alert()->success('อัพเดทช้อมูลสำเสร็จ','ชื่อประเภทสินค้าชื่อนี้ถูกบันทึกลงในระบบฐานข้อมูลเรียบร้อยแล้ว');
         return redirect()->route('c.index');
 }
+
+    public function delete($category_id){
+        $category = Category::find($category_id);
+        $category->delete();
+        alert()->success('ลบช้อมูลสำเสร็จ','ข้อมูลถุกลบเรียบร้อยแล้ว');
+        return redirect()->route('c.index');
+    }
 }

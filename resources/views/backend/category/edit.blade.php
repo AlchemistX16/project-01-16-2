@@ -17,8 +17,7 @@
                 class="form-control"
                 id="defaultFormControlInput"
                 placeholder="กรุณากรอกประเภทสินค้า"
-                aria-describedby="defaultFormControlHelp"
-              />
+                aria-describedby="defaultFormControlHelp"/>
               <input type="submit" value="อัพเดทข้อมูล" class="btn btn-primary mt-3">
               <div class="mt-3">
               @error('name')

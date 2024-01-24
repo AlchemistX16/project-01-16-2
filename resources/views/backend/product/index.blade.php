@@ -1,6 +1,6 @@
 @extends('layouts.master_backend')
 @section('con')
-<div class="container-xxl flex-grow-1 container-p-y">
+<div class="container-xxl flex-grow-1 container-p-y" style="color:#000">
   <div class="card">
       <h5 class="card-header">Product</h5>
       <div class="table-responsive text-nowrap">
@@ -15,17 +15,20 @@
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody class="table-border-bottom-0">
+          <tbody class="table-border-bottom-0" style="color:#000">
+            @foreach ($product as $pro)
             <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{ $product->firstItem() + $loop->index }}</td>
+            <td>{{ $cat->image }}</td>
+            <td>{{ $cat->name }}</td>
+            <td>{{ $cat->created_at }}</td>
+            <td>{{ $cat->updated_at }}</td>
             <td>
               <a href="{{ url('admin/category/edit',$cat->category_id) }}"><i stly="font-color: black">แก้ไข</i></a>
               <a href="#"><i>ลบ</i></a>
             </td>
             </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
